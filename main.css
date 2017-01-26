@@ -1,0 +1,108 @@
+/*
+Developer: Quynh Vu
+Table of Contents
+HEADER - Navigation, Logo, Pictures
+MAINCONTENT - Bio, Music, Tour and Update
+FOOTER - Copyright
+COLORPALETTE -
+#000
+#fff
+#331410
+#802167
+
+*/
+
+/*Site Styles
+=============================*/
+* {margin: 0; padding: 0;}
+body {
+    background: black;
+    font-family: DIN Alternate, sans-serif; 
+    max-width: 1080px;
+    vertical-align: baseline;
+    margin: 0 auto;
+    line-height: 1.2;
+}
+p {
+    color: white;
+    padding: 20px 40px 20px ;
+    font-family: Arial Narrow, sans-serif;
+}
+#about {
+    background-color: #331410;
+}
+h1 {
+    color: white;
+    font-size: 30px;
+    border-bottom: 2px solid #331410;
+}
+#header {
+    background: black;
+    box-shadow: 0px 2px 2px black;
+}
+
+/* Header + Nav Styles
+===============================*/
+header {
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+nav li{
+    display: inline-block;
+    padding: 40px 30px 40px 0;
+}
+a:link {
+    color: white;
+    text-decoration: none;
+}
+a:visited {
+    color: white;
+}
+a:hover {
+    color: #802617;
+}
+
+nav li:nth-child(3) {
+    padding-right: 100px;
+}
+nav li:nth-child(4) {
+    padding-left: 150px;
+}
+.logo {
+    background: url(../_images/m5_logo.png) no-repeat;
+    background-size: 200px 100px;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 420px;
+}
+
+img.displayed {
+    display: inline-block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+/* the band styles
+==================================*/
+img.adam, img.james, img.matt {
+    padding-top: 10px;
+    vertical-align: middle;
+    margin-bottom: 0.75em;
+    width: 200px;
+}
+
+span.text {
+    color: white;
+    font-size: 20px;
+}
+
+/* albums styles
+===================================*/
+img.album {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 400px;
+}
