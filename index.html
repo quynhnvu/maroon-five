@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Basic page needs
+=============================-->
+<head>
+<meta charset="utf-8">
+<title>Maroon 5</title>
+<meta name="description" content="Discography Website">
+<meta name="author" content="Maroon5">
+    
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+<!-- CSS
+================================================== -->
+<!-- <link rel="stylesheet" href="_css/main.css"> no longer needed--> 
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Styles
+=================================================== -->
+<style>
+/*
+Developer: Quynh Vu
+Table of Contents
+HEADER - Navigation, Logo, Pictures
+MAINCONTENT - Bio, Music, Tour and Update
+FOOTER - Copyright
+COLORPALETTE -
+#000 
+#fff 
+#331410 
+#802167 
+#832518
+*/
+
+/* Site Styles */
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+body {
+    background: url('_images/IMG_4687.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: black;
+    font-family: 'Ropa Sans', sans-serif; 
+    max-width: 1080px;
+    vertical-align: baseline;
+    margin: 0 auto;
+    line-height: 1.2;
+}
+.container {padding: 80px 120px;}
+p {
+    color: white;
+    padding: 20px 40px 20px ;
+    font-family: Arial Narrow, sans-serif;
+    font-size: 18px;
+}
+.text {
+    text-align: center;
+    font-family: 'Ropa Sans', sans-serif; 
+    color: #832518;
+    font-size: 20px;
+}
+h1 {
+    text-align: center;
+    letter-spacing: 10px;
+}
+h1, h2 {
+    color: white;
+    font-size: 35px;
+    border-bottom: 2px solid #331410;
+}
+    
+h3 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+h4 {
+    text-shadow: 2px 2px black;
+    color: white;
+    font-size: 24px;
+    }
+.person {
+    border: 5px solid transparent;
+    margin-bottom: 25px;
+    width: 60%;
+    height: 60%;
+  }
+.person:hover {border-color: #331410;}
+    
+.update {text-align: center;}
+    
+.form-control {border-radius: 0;}
+    
+textarea {resize: none;}
+
+img.album {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    }
+.hover figure:hover img {
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.google:hover, .itunes:hover {
+    animation: bounce 1s;
+}
+@-webkit-keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+/* Header + Nav Styles */
+.carousel-caption h3 {color: #fff !important;}
+    
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+  }
+.navbar {
+    font-family: 'Ropa Sans', sans-serif;
+    background-color: #331410;
+    border: 0;
+    font-size: 12px !important;
+    letter-spacing: 4px;
+    opacity: 0.8;
+  }
+.navbar-brand {
+    background: url(_images/m5_logo.png) center / contain no-repeat;
+    width: 150px;
+    transform: translate(-50%);
+    left: 50%;
+    position: absolute;
+  }
+.navbar li a, .navbar .navbar-brand {color: #d5d5d5 !important;}
+    
+.nav-tabs li a {color: #777;}
+    
+.navbar-nav li a:hover {color: #fff !important;}
+    
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+  }
+    
+.navbar-default .navbar-toggle {border-color: transparent;}
+
+/* Album Cover Styles */
+.overlay ol li {
+    color: white;
+    font-size: 20px;
+    text-shadow: 2px 2px black;
+    }
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.hovereffect .overlay {
+    position: absolute;
+    overflow: hidden;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border-bottom: 1px solid #FFF;
+    border-top: 1px solid #FFF;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale(0,1);
+    -ms-transform: scale(0,1);
+    transform: scale(0,1);
+}
+
+.hovereffect:hover .overlay {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+.hovereffect:hover img {
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+    filter: brightness(0.6);
+    -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    background-color: transparent;
+    color: #FFF;
+    padding: 1em 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-100%,0);
+}
+
+.hovereffect a, hovereffect p {
+    color: #FFF;
+    padding: 1em 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+    
+/* New Release */
+img.new {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    }
+    
+/*Tour Styles */
+.month {
+    font-size: 35px;
+    color: #832518;
+    }
+a:visited {
+    color: #e0ac96;
+    }
+a:hover {
+    color: #802617;
+}
+.date {
+    font-size: 30px;
+    color: white;
+    }
+.country {
+    color: white;
+    font-size: 20px;
+    }
+.place {
+    font-size: 15px;
+    color: #832518;
+    padding-bottom: 10px;
+    }
+/*Email Form */
+label {
+    color: #d5d5d5;
+    font-size: 18px;
+    }
+p.text {
+    color: white;
+    text-shadow: 2px 2px black;
+    }
+/* Footer Style */
+#footer {
+    clear:both;
+    background: black;
+    color: #fff;
+    font-family: Source Sans Pro, sans-serif;
+	font-size: 15px;
+    line-height: normal;
+    margin-top: 20px;
+    max-width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+/* Media Queries */
+@media (max-width: 600px) {
+    body {
+      background: black;
+    }
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+</style>
+</head>
+<!--Primary Page Layout
+================================-->
+<body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+            <a class="navbar-brand text-hide" href="#mypage">Brand Text</a>
+            </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">BIO</a></li>
+                <li><a href="#music">MUSIC</a></li>
+                <li><a href="#tour">TOUR</a></li>
+                <li><a href="#update">UPDATE</a></li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+        <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+    <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="_images/slide1.jpg" alt="Portland" width="1080" height="720">
+                <div class="carousel-caption">
+                    <h3>M5ONTHEROAD &ndash; PORTLAND</h3>
+                </div>      
+            </div>
+            <!-- Slide 2 -->
+            <div class="item">
+                <img src="_images/slide2.jpg" alt="SaltLake" width="1080" height="720">
+                <div class="carousel-caption">
+                    <h3>M5ONTHEROAD &ndash; SALT LAKE CITY</h3>
+                </div>      
+            </div>
+             <!-- Slide 3 -->
+            <div class="item">
+                <img src="_images/slide3.jpg" alt="Paris" width="1080" height="720">
+                <div class="carousel-caption">
+                    <h3>M5ONTHEROAD &ndash; PARIS</h3>
+                </div>      
+            </div>
+             <!-- Slide 4 -->
+            <div class="item">
+                <img src="_images/slide4.jpg" alt="Baltimore" width="1080" height="720">
+                <div class="carousel-caption">
+                    <h3>M5ONTHEROAD &ndash; BALTIMORE</h3>
+                </div>      
+            </div>
+        </div>
+    </div>
+<!-- ABOUT -->   
+<section id="about">
+    <h1>BIOGRAPHY</h1>
+        <p>Maroon 5, born and bred in Los Angeles, with their catchy hook, soaring vocals, and signature sound, have solidified their position as one of pop music&apos;s most enduring artists. The band captured their first of three Grammy Awards as &quot;Best New Artist&quot; of 2005 and have gone on to sell more than 17 million albums worldwide. Maroon 5&apos;s releases have also gone gold and platinum in over 35 countries. <a href="http://www.maroon5.com/about" target="_blank"><em>More details about Maroon5</em></a></p>
+</section>
+<!-- BIOGRAPHY -->    
+<section id="bio">
+    <h2>THE BAND</h2>
+        <!-- ROW 1 -->
+        <div class="row">
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <p class="text-center"><strong>ADAM LEVINE</strong></p><br>
+                    <a href="#demo" data-toggle="collapse">
+                        <img src="_images/adam.jpg" class="img-circle person" alt="member" width="150" height="150">
+                    </a>
+                <div id="demo" class="collapse">
+                    <p>Guitarist and Lead Vocalist</p>
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <p class="text-center"><strong>JAMES VALENTINE</strong></p><br>
+                    <a href="#demo2" data-toggle="collapse">
+                        <img src="_images/james.jpg" class="img-circle person" alt="member" width="150" height="150">
+                    </a>
+                <div id="demo2" class="collapse">
+                    <p>Guitarist and Backing Vocals</p>
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <p class="text-center"><strong>MATT FLYNN</strong></p><br>
+                    <a href="#demo3" data-toggle="collapse">
+                        <img src="_images/matt.jpg" class="img-circle person" alt="member" width="150" height="150">
+                    </a>
+                <div id="demo3" class="collapse">
+                    <p>Drummer</p>
+                </div>
+            </div>
+        </div>
+        <!-- ROW 2 -->
+        <div class="row">
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <p class="text-center"><strong>JESSE CARMICHAEL</strong></p><br>
+                    <a href="#demo4" data-toggle="collapse">
+                        <img src="_images/jesse.jpg" class="img-circle person" alt="member" width="150" height="150">
+                    </a>
+                <div id="demo4" class="collapse">
+                    <p>Keyboardist and Backing Vocals</p>
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <p class="text-center"><strong>MICKEY MADDEN</strong></p><br>
+                    <a href="#demo5" data-toggle="collapse">
+                        <img src="_images/mickey.jpg" class="img-circle person" alt="member" width="150" height="150">
+                    </a>
+                <div id="demo5" class="collapse">
+                    <p>Bass player</p>
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <p class="text-center"><strong>PJ MORTON</strong></p><br>
+                    <a href="#demo6" data-toggle="collapse">
+                        <img src="_images/pj.png" class="img-circle person" alt="member" width="150" height="150">
+                    </a>
+                <div id="demo6" class="collapse">
+                    <p>Keyboardist and Backing Vocals</p>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- MUSIC -->    
+<section id="music">
+    <h2>MUSIC</h2>
+        <div class="row">
+            <!-- ALBUM 1 -->
+            <div class="col-xs-offset-0 col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+                <div class="hovereffect">
+                   <img src="_images/1.jpg" alt="album" width="500" height="500" class="album">
+                       <div class="overlay">
+                           <h4>1.22.03 Acoustic</h4>
+                                <ol>
+                                    <li>This Love</li>
+                                    <li>Sunday Morning</li>
+                                    <li>She Will Be Loved</li>
+                                    <li>Harder to Breathe</li>
+                                    <li>The Sun</li>
+                                    <li>If I Fell</li>
+                                    <li>Highway to Hell</li>
+                                </ol>
+                        </div>
+                   </div>
+               </div>
+            <!-- ALBUM 2 -->
+            <div class="col-xs-offset-0 col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+                <div class="hovereffect">
+                    <img src="_images/2.jpg" alt="album" width="500" height="500" class="album">
+                        <div class="overlay">
+                            <h4>Songs About Jane</h4>
+                                <ol>
+                                    <li>Harder to Breathe</li>
+                                    <li>This Love</li>
+                                    <li>Shiver</li>
+                                    <li>She Will Be Loved</li>
+                                    <li>Tangled</li>
+                                    <li>The Sun</li>
+                                    <li>Must Get Out</li>
+                                    <li>Sunday Morning</li>
+                                    <li>Secret</li>
+                                    <li>Through with you</li>
+                                    <li>Not Coming Home</li>
+                                    <li>Sweetest Goodbye</li>
+                                </ol>
+                        </div>
+                </div>
+            </div>
+            <!-- ALBUM 3 -->
+            <div class="col-xs-offset-0 col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+                <div class="hovereffect">
+                   <img src="_images/3.jpg" alt="album" width="500" height="500" class="album">
+                        <div class="overlay">
+                            <h4>It Won&apos;t Be Soon Before Long</h4>
+                                <ol>
+                                    <li>If I Never See Your Face Again</li>
+                                    <li>Makes Me Wonder</li>
+                                    <li>Little of Your Time</li>
+                                    <li>Wake Up Call</li>
+                                    <li>Won&apos;t Go Home Without You</li>
+                                    <li>Nothing Lasts Forever</li>
+                                    <li>Can&apos;t Stop</li>
+                                    <li>Goodnight Goodnight</li>
+                                    <li>Not Falling Apart</li>
+                                    <li>Kiwi</li>
+                                    <li>Better That We Break</li>
+                                    <li>Back at Your Door</li>
+                                </ol>
+                        </div>
+                   </div>
+               </div>
+            <!-- ALBUM 4 -->
+               <div class="col-xs-offset-0 col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+                <div class="hovereffect">
+                    <img src="_images/4.jpg" alt="album" width="500" height="500" class="album">
+                        <div class="overlay">
+                            <h4>Hands All Over</h4>
+                                <ol>
+                                    <li>Misery</li>
+                                    <li>Give a Little More</li>
+                                    <li>Stutter</li>
+                                    <li>Don&apos;t Know Nothing</li>
+                                    <li>Never Gonna Leave This Bed</li>
+                                    <li>I Can&apos;t Lie</li>
+                                    <li>Hands All Over</li>
+                                    <li>How</li>
+                                    <li>Get Back in My Life</li>
+                                    <li>Just a Feeling</li>
+                                    <li>Runaway</li>
+                                    <li>Out of Goodbyes</li>
+                                </ol>
+                        </div>
+                   </div>
+               </div>
+            <!-- ALBUM 5 -->
+               <div class="col-xs-offset-0 col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+                <div class="hovereffect">
+                    <img src="_images/5.jpg" alt="album" width="500" height="500" class="album">
+                        <div class="overlay">
+                          <h4>Overexposed</h4>
+                            <ol>
+                                <li>One More Night</li>
+                                <li>Payphone</li>
+                                <li>Daylight</li>
+                                <li>Lucky Strike</li>
+                                <li>The Man Who Never Lied</li>
+                                <li>Love Somebody</li>
+                                <li>Ladykiller</li>
+                                <li>Fortune Teller</li>
+                                <li>Sad</li>
+                                <li>Tickets</li>
+                                <li>Doin&apos; Dirt</li>
+                                <li>Beautiful Goodbye</li>
+                            </ol>       
+                        </div>
+                   </div>
+               </div>
+            <!-- ALBUM 6 -->
+               <div class="col-xs-offset-0 col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-offset-0 col-lg-6">
+                <div class="hovereffect">
+                    <img src="_images/6.jpg" alt="album" width="500" height="500" class="album">
+                        <div class="overlay">
+                            <h4>V</h4>
+                                <ol>
+                                    <li>Maps</li>
+                                    <li>Animals</li>
+                                    <li>It Was Always You</li>
+                                    <li>Unkiss Me</li>
+                                    <li>Sugar</li>
+                                    <li>Leaving California</li>
+                                    <li>In Your Pocket</li>
+                                    <li>New Love</li>
+                                    <li>Coming Back for You</li>
+                                    <li>Feelings</li>
+                                    <li>My Heart Is Open</li>
+                                </ol>
+                        </div>
+                   </div>
+               </div>
+            </div>
+</section>
+<!-- NEW RELEASE --> 
+<section id="release">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="hover">
+                    <div>
+                        <figure><img src="_images/new.png" alt="new release" width="500" height="300" class="new"></figure>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h3>NEW RELEASE</h3>
+                    <a href="https://play.google.com/store/music/album/Maroon_5_Don_t_Wanna_Know?id=Bcmyboiyoh7aunbey5wgu7ljegy" target="_blank"><img class="google" src="_images/google.png" alt="google music" width="200"></a>
+                    <a href="https://itunes.apple.com/us/album/dont-wanna-know-feat.-kendrick/id1163339721" target="_blank"><img class="itunes" src="_images/itunes.png" alt="itunes" width="200"></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- TOUR -->    
+<section id="tour">
+    <h2>ON TOUR</h2>
+        <div class="container">
+            <!-- ROW 1 -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="month"><a href="http://www.nojazzfest.com/" target="_blank">APR</a></div>
+                    <div class="date">29</div>
+                    <div class="country">New Orleans, LA, USA</div>
+                    <div class="place"><em>New Orleans Jazz Fest</em></div>
+                    </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="month"><a href="https://www.eventbrite.com/e/bottlerock-napa-valley-2017-tickets-29319137329?aff=ArtistMaroon5&utm_source=ArtistMaroon5" target="_blank">MAY</a></div>
+                    <div class="date">26</div>
+                    <div class="country">Napa, CA, USA</div>
+                    <div class="place"><em>BottleRock Napa Valley</em></div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="month"><a href="http://www.jazzaspensnowmass.org/" target="_blank">SEP</a></div>
+                    <div class="date">01</div>
+                    <div class="country">Aspen, CO, USA</div>
+                    <div class="place"><em>Aspen Snowmass JAS Experience</em></div>
+                </div>
+            </div>
+            <!-- ROW 2 -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="month"><a href="http://www.jazzaspensnowmass.org/" target="_blank">SEP</a></div>
+                    <div class="date">02</div>
+                    <div class="country">Aspen, CO, USA</div>
+                    <div class="place"><em>Aspen Snowmass JAS Experience</em></div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="month"><a href="http://www.jazzaspensnowmass.org/" target="_blank">SEP</a></div>
+                    <div class="date">03</div>
+                    <div class="country">Aspen, CO, USA</div>
+                    <div class="place"><em>Aspen Snowmass JAS Experience</em></div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="month"><a href="http://rockinrio.com/rio/en" target="_blank">SEP</a></div>
+                    <div class="date">16</div>
+                    <div class="country">Rio De Janeiro, Brazil</div>
+                    <div class="place"><em>Rock N Rio</em></div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- UPDATE -->    
+<section id="update">
+    <h2 class="update">UPDATES FROM MAROON 5</h2>
+        <p class="text">Sign up to join our mailing list and receive exclusive offers and updates</p>
+            <div class="col-sm-6 form-group">
+                <input class="form-control" id="firstname" name="first name" placeholder="First Name" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <input class="form-control" id="lastname" name="last name" placeholder="Last Name" type="text" required>
+            </div>
+            <div class="col-sm-4 form-group">
+                <input class="form-control" id="birthday" name="birthday" placeholder="Birthday (mm/dd/yyyy)" type="text" required>
+            </div>
+            <div class="col-sm-4 form-group">
+                <input class="form-control" id="adress" name="adress" placeholder="Adress" type="text" required>
+            </div>
+            <div class="col-sm-4 form-group">
+                <input class="form-control" id="city" name="city" placeholder="City" type="text" required>
+            </div>
+            <div class="col-sm-4 form-group">
+                <input class="form-control" id="state" name="state" placeholder="State" type="text" required>
+            </div>
+            <div class="col-sm-4 form-group">
+                <input class="form-control" id="zipcode" name="zipcode" placeholder="Zip Code" type="text" required>
+            </div>
+            <div class="col-sm-4 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+            <div class="col-lg-5">
+                <div class="form-group">
+                        <label>Email Preference</label>
+                    <div class="radio">
+                        <label for="preference1">
+                            <input type="radio" name="preference" id="preference1" value="HTML" checked>HTML
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="preference2">
+                            <input type="radio" name="preference" id="preference2" value="Plain Text"> Plain Text
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="terms">Terms and Conditions</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="terms" id="terms" value="Agree" checked> I have read and agree to the terms and conditions
+                        </label>
+                    </div>
+                </div>
+            </div>
+    <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br>
+    <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">SUBSCRIBE</button>
+        </div>
+    </div>
+</section>
+<!--Footer
+================================-->
+<div id="footer"><span><a href="http://www.maroon5.com/" target="_blank">Source - Maroon5 Official Website&reg;</a></span><br><span>&copy; Francis Tuttle Web Design and Development &ndash; Quynh Vu</span>
+</div>
+    
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+    </body>
+        </html>
